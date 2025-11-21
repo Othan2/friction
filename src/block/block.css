@@ -92,3 +92,28 @@ button:active {
   font-size: 14px;
   min-height: 20px;
 }
+
+.bypass-btn {
+  background: none;
+  color: #9c9c9c;
+  border: none;
+  font-size: 8px;
+  font-weight: normal;
+  margin-top: 16px;
+  padding: 8px;
+}
+
+.bypass-btn:disabled {
+  color: #d0d0d0;
+  cursor: not-allowed;
+}
+
+.bypass-btn:hover {
+  background: none;
+  color: #9c9c9c;
+}
+
+.bypass-btn:active {
+  background: none;
+  color: #9c9c9c;
+}

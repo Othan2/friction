@@ -4,6 +4,7 @@ const phraseElement = document.getElementById('phrase') as HTMLParagraphElement;
 const phraseInput = document.getElementById('phraseInput') as HTMLInputElement;
 const phraseForm = document.getElementById('phraseForm') as HTMLFormElement;
 const errorElement = document.getElementById('error') as HTMLParagraphElement;
+const bypassBtn = document.getElementById('bypassBtn') as HTMLButtonElement;
 
 phraseInput.addEventListener('paste', (e) => {
   e.preventDefault();
@@ -44,6 +45,29 @@ phraseForm.addEventListener('submit', async (e) => {
     errorElement.textContent = 'Incorrect phrase. Please try again.';
     phraseInput.value = '';
     phraseInput.focus();
+  }
+});
+
+bypassBtn.disabled = true;
+
+setTimeout(() => {
+  bypassBtn.disabled = false;
+}, 3000);
+
+bypassBtn.addEventListener('click', async () => {
+  if (targetUrl) {
+    const domain = extractDomain(targetUrl);
+    const BYPASS_DURATION_MS = 2 * 60 * 1000; // 2 minutes
+    const expiryTime = Date.now() + BYPASS_DURATION_MS;
+
+    const result = await chrome.storage.local.get('temporaryUnlocks');
+    const unlocks = (result.temporaryUnlocks as TemporaryUnlocks) || {};
+    unlocks[domain] = expiryTime;
+    await chrome.storage.local.set({ temporaryUnlocks: unlocks });
+
+    window.location.href = targetUrl;
+  } else {
+    errorElement.textContent = 'Error: No target URL specified';
   }
 });
 
