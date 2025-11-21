@@ -56,7 +56,7 @@ If blocking isn't working, follow these steps to debug:
 ### 1. Check Service Worker Status
 
 1. Go to `chrome://extensions/`
-2. Find "Distraction Phrase Blocker"
+2. Find "Friction"
 3. Click "Inspect views: service worker"
 4. Check the console for any errors
 5. Verify the service worker is running (should say "Service worker" at the top)

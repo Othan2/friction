@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Distraction Phrase Blocker",
+  "name": "Friction",
   "version": "1.0.0",
   "description": "Block distracting websites until you type a motivational phrase",
   "permissions": [
