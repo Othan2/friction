@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Distraction Blocker Settings</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Distraction Blocker</h1>
+
+    <section class="phrase-section">
+      <h2>Phrase</h2>
+      <input
+        type="text"
+        id="phraseInput"
+        placeholder="Enter your motivation phrase"
+      >
+      <button id="savePhrase">Save Phrase</button>
+    </section>
+
+    <section class="sites-section">
+      <h2>Blocked Sites</h2>
+      <form id="addSiteForm">
+        <input
+          type="text"
+          id="siteInput"
+          placeholder="example.com"
+        >
+        <button type="submit">Add Site</button>
+      </form>
+
+      <ul id="sitesList"></ul>
+    </section>
+  </div>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Blocked</title>
+  <link rel="stylesheet" href="block.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Site Blocked</h1>
+    <p class="instruction">Type the following phrase to continue:</p>
+    <p class="phrase" id="phrase"></p>
+    <form id="phraseForm">
+      <input
+        type="text"
+        id="phraseInput"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Type the phrase exactly..."
+      >
+      <button type="submit">Continue</button>
+    </form>
+    <p class="error" id="error"></p>
+  </div>
+  <script type="module" src="block.js"></script>
+</body>
+</html>

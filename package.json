@@ -1,0 +1,23 @@
+{
+  "name": "distraction-phrase",
+  "version": "1.0.0",
+  "description": "Chrome extension that helps users avoid distraction by requiring a phrase to access blocked sites",
+  "scripts": {
+    "build": "tsc && npm run copy-assets && npm run flatten && npm run fix-imports && npm run build-background",
+    "build-background": "esbuild src/background.ts --bundle --outfile=dist/background.js --format=iife --platform=browser",
+    "copy-assets": "mkdir -p dist && cp manifest.json dist/ && cp src/popup/*.html dist/ && cp src/popup/*.css dist/ && cp src/block/*.html dist/ && cp src/block/*.css dist/",
+    "flatten": "mv dist/block/block.js dist/ && mv dist/popup/popup.js dist/ && rmdir dist/block dist/popup",
+    "fix-imports": "sed -i '' \"s|from '../types.js'|from './types.js'|g\" dist/block.js dist/popup.js",
+    "watch": "tsc --watch",
+    "clean": "rm -rf dist",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.268",
+    "@types/jest": "^29.5.11",
+    "esbuild": "^0.19.11",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.3"
+  }
+}
