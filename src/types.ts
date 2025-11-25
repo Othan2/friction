@@ -20,5 +20,5 @@ export interface BlockPageParams {
 
 export function extractDomain(url: string): string {
   const urlObj = new URL(url);
-  return urlObj.hostname.replace(/^www\./, '');
+  return urlObj.hostname.replace(/^www\./, '').toLowerCase();
 }
